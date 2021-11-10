@@ -1,0 +1,18 @@
+.top{
+    margin-top: 30px;
+}
+.top h2{
+    color: #012a4a;
+}
+.top span{
+    color: #f94144;
+}
+/* package */
+.product{
+    margin-top: 25px;
+    height: 40px;
+    width: 60%;
+    border: 2px solid #267da0;
+    border-radius: 5px;
+    
+}

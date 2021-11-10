@@ -1,0 +1,22 @@
+.info-row {
+    width: 100%;
+  }
+  .info-top h2 {
+    color: #012a4a;
+     padding-top: 50px;
+     padding-bottom: 50px;
+  }
+  .info-header {
+    height: 550px;
+    background-color: #20b8c9;
+    margin-bottom: -40px;
+  }
+  /* description */
+  .info-description{
+ margin-top: 100px;
+ padding-left: 40px;
+  }
+  .info-description h6 {
+    color: rgb(17, 16, 16);
+    
+  }
