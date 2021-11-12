@@ -20,7 +20,7 @@ const Products = () => {
         <input className="product" type="text" placeholder="Search your Favourite Products" />
         <Row xs={1} md={2} lg={3} className="g-4">
             {
-                products?.map(product => <Product key={product._id} product={product}></Product>)
+                products?.slice(0, 6).map(product => <Product key={product._id} product={product}></Product>)
             }
         </Row>
      </div>
