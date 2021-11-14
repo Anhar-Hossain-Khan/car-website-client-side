@@ -1,81 +1,104 @@
-import React from 'react';
-import { Col, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
+import {
+  Container,
+  Typography,
+  TextField,
+  Button,
+  CircularProgress,
+  Alert,
+} from "@mui/material";
+import React, { useState } from "react";
+import { Grid } from "@mui/material";
+import { NavLink, useHistory } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+
 
 
 const Register = () => {
-    const { getName, signup, getEmail, getPassword, error } = useAuth();
-    return (
-        <div className="text-center text-white">
-        <h2 className="text-warning">Please Sign Up </h2>
-        <p className="text-danger text-center">{error}</p>
-        <div className="w-25 mx-auto">
-          <Form onSubmit={signup}>
-            <Row>
-              <Col className="text-start">
-                <Form.Label htmlFor="email" visuallyHidden>
-                  Your Name
-                </Form.Label>
-                <InputGroup className="mb-2">
-                  <FormControl
-                    required
-                    type="text"
-                    placeholder="Enter your name"
-                    onBlur={getName}
-                    id="name"
-                    autoComplete="current-name"
-                  />
-                </InputGroup>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="text-start">
-                <Form.Label htmlFor="email" visuallyHidden>
-                  Your Email Address
-                </Form.Label>
-                <InputGroup className="mb-2">
-                  <FormControl
-                    required
-                    type="email"
-                    placeholder="Enter Email"
-                    onBlur={getEmail}
-                    id="email"
-                    autoComplete="current-email"
-                  />
-                </InputGroup>
-              </Col>
-            </Row>
-  
-            <Row className="mt-2">
-              <Col className="text-start">
-                <Form.Label htmlFor="email" visuallyHidden>
-                  Your Password
-                </Form.Label>
-                <InputGroup className="mb-2">
-                  <FormControl
-                    type="password"
-                    placeholder="Enter Password"
-                    onBlur={getPassword}
-                    id="password"
-                    autoComplete="current-password"
-                  />
-                </InputGroup>
-              </Col>
-            </Row>
-           
-            <button type="submit" className="btn btn-primary mt-2 w-100">
-              Sign Up
-            </button>
-          </Form>
-        </div>
-        <p className="mt-2">
-          <NavLink className="text-decoration-none" to="/login">
-            Already have account ? Please Login!
-          </NavLink>
-        </p>
-      </div>
-    );
+  const [loginData, setLoginData] = useState({});
+  const history = useHistory();
+  const { user, registerUser, isLoading, error } = useAuth();
+
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
+  };
+  const handleLoginSubmit = (e) => {
+    if (loginData.password !== loginData.password2) {
+      alert("Your password did not match");
+      return;
+    }
+    registerUser(loginData.email, loginData.password, loginData.name, history);
+    e.preventDefault();
+  };
+  return (
+    <Container>
+      <Grid container spacing={2}>
+        <Grid item sx={{ mt: 15 }} xs={12} md={6} lg={12}>
+          <Typography variant="body1" gutterBottom>
+            <h2 style={{ textAlign: "left" }}>REGISTER USER</h2>
+          </Typography>
+          {!isLoading && (
+            <form onSubmit={handleLoginSubmit}>
+              <TextField
+                sx={{ width: "75%", m: 1 }}
+                id="standard-basic"
+                label="Your Name"
+                name="name"
+                onBlur={handleOnBlur}
+                variant="standard"
+              />
+              <TextField
+                sx={{ width: "75%", m: 1 }}
+                id="standard-basic"
+                label="Your Email"
+                name="email"
+                type="email"
+                onBlur={handleOnBlur}
+                variant="standard"
+              />
+              <TextField
+                sx={{ width: "75%", m: 1 }}
+                id="standard-basic"
+                label="Your Password"
+                type="password"
+                name="password"
+                onBlur={handleOnBlur}
+                variant="standard"
+              />
+              <TextField
+                sx={{ width: "75%", m: 1 }}
+                id="standard-basic"
+                label="ReType Your Password"
+                type="password"
+                name="password2"
+                onBlur={handleOnBlur}
+                variant="standard"
+              />
+
+              <Button
+                sx={{ width: "75%", m: 1 }}
+                type="submit"
+                variant="contained"
+              >
+                Register
+              </Button>
+              <NavLink style={{ textDecoration: "none" }} to="/login">
+                <Button variant="text">Already Registered? Please Login</Button>
+              </NavLink>
+            </form>
+          )}
+          {isLoading && <CircularProgress />}
+          {user?.email && (
+            <Alert severity="success">User Created successfully!</Alert>
+          )}
+          {/* {error && <Alert severity="error">{error}</Alert>} */}
+        </Grid>
+      </Grid>
+    </Container>
+  );
 };
 
 export default Register;

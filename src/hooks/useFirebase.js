@@ -12,6 +12,7 @@ import initializeAuthentication from "../components/Login/Firebase/firebase.init
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
   
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -53,16 +54,35 @@ import initializeAuthentication from "../components/Login/Firebase/firebase.init
       });
       return () => unsubscribe;
     }, []);
-    const signup = (event) => {
-      event.preventDefault();
+
+    useEffect(() => {
+      fetch(`https://thawing-headland-26014.herokuapp.com/user/${user.email}`)
+        .then((res) => res.json())
+        .then((data) => setAdmin(data.admin));
+    }, [user.email]);
+
+    const registerUser = (email, password, name, history) => {
+      setIsLoading(true);
       createUserWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-          setNameAndImage();
-          alert("User created");
+        .then((userCredential) => {
+          setError("");
+          // const newUser = { email, displayName: name };
+          // setUser(newUser);
+          // save user to the database
+          saveUser(email, "POST");
+          // send name to firebase after creation
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          })
+            .then(() => {})
+            .catch((error) => {});
+          history.replace("/");
         })
-        .catch((err) => {
-          setError(err.message);
-        });
+        .catch((error) => {
+          setError(error.message);
+          console.log(error);
+        })
+        .finally(() => setIsLoading(false));
     };
     const getName = (event) => {
       setName(event?.target?.value);
@@ -74,15 +94,28 @@ import initializeAuthentication from "../components/Login/Firebase/firebase.init
     const getPassword = (event) => {
       setPassword(event?.target?.value);
     };
-  
+
+    const saveUser = (email, method) => {
+      const user = { email };
+      fetch("https://thawing-headland-26014.herokuapp.com/user/", {
+        method: method,
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }).then();
+    };
     return {
       user,
       isLoading,
       error,
       setError,
+      registerUser,
+      saveUser,
+      admin,
       signInWithEmail,
       signInUsingGoogle,
-      signup,
+      //signup,
       getEmail,
       getPassword,
       getName,

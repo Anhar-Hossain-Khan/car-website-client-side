@@ -24,15 +24,15 @@ const Header = () => {
          <Button  onClick={logout} variant="danger" className="ms-2 text-white" >LogOut</Button>:
          <Nav.Link as={Link} to="/login" className="text-white">Login</Nav.Link>
        } */}
-
+       
        {user?.providerData ? (
                 <div>
                   <NavLink to="/dashboard" className="text-info text-decoration-none mx-2">
                     DashBoard
                   </NavLink>
-                  <Navbar.Text>
-          <a href="#login" className="text-info text-decoration-none" >{user?.displayName}</a>
-        </Navbar.Text>
+                <Navbar.Text>
+               <a href="#login" className="text-info text-decoration-none" >{user?.displayName}</a>
+               </Navbar.Text>
                   <Button onClick={logout} variant="danger" className="ms-2 text-white">
                     Logout
                   </Button>

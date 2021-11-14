@@ -15,7 +15,7 @@ function MyOrder() {
   const [myOrder, setMyOrder] = useState("");
   console.log(myOrder);
   useEffect(() => {
-    fetch("http://localhost:5000/order/")
+    fetch("https://thawing-headland-26014.herokuapp.com/order")
       .then((response) => response.json())
       .then((data) => {
         setMyOrder(data);
@@ -26,7 +26,7 @@ function MyOrder() {
   const handleDeleteOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/order/${id}`;
+      const url = `https://thawing-headland-26014.herokuapp.com/order/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -41,7 +41,7 @@ function MyOrder() {
     }
   };
   return (
-    // appointment page design
+
     <div className="pt-1 pb-1">
       <Container>
         <div className="membership mb-3">
@@ -78,8 +78,8 @@ function MyOrder() {
                   <td>{item.Address}</td>
                   <td>{item.status}</td>
                   <td>
-                    <button onClick={() => handleDeleteOrder(item._id)}>
-                      X
+                    <button className="btn btn-danger" onClick={() => handleDeleteOrder(item._id)}>
+                      DELETE
                     </button>
                   </td>
                 </tr>

@@ -8,6 +8,7 @@ import Home from './components/Home/Home/Home';
 import MoreProducts from './components/Home/MoreProducts/MoreProducts';
 import OrderPlace from './components/Home/OrderPlace/OrderPlace';
 import Products from './components/Home/Products/Products';
+import Reviews from './components/Home/Reviews/Reviews';
 import Login from './components/Login/Login/Login';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import Register from './components/Login/Register/Register';
@@ -52,6 +53,10 @@ function App() {
          <OrderPlace></OrderPlace>
           </PrivateRoute>
 
+          <Route path="/reviews">
+            <Reviews></Reviews>
+          </Route>
+
           <Route path="/login">
             <Login></Login>
           </Route>
@@ -60,9 +65,9 @@ function App() {
           <Register></Register>
           </Route>
 
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
               <DashBoard></DashBoard>
-            </Route>
+            </PrivateRoute>
 
           <Route path="*">
             <NotFound></NotFound>

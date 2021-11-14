@@ -25,7 +25,7 @@ const ManageAllOrder = () => {
     // }, []);
   
     useEffect(() => {
-      fetch("http://localhost:5000/order/")
+      fetch("https://thawing-headland-26014.herokuapp.com/order")
         .then((response) => response.json())
         .then((data) => {
           setAllOrder(data);
@@ -35,7 +35,7 @@ const ManageAllOrder = () => {
     const handleDeleteOrder = (id) => {
       const proceed = window.confirm("Are you sure, you want to delete?");
       if (proceed) {
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `https://thawing-headland-26014.herokuapp.com/order/${id}`;
         fetch(url, {
           method: "DELETE",
         })
@@ -55,7 +55,7 @@ const ManageAllOrder = () => {
     const handleUpdateUser = (e, id) => {
       const specific_value = allOrder.find((element) => element._id === id);
       console.log(specific_value);
-      const url = `http://localhost:5000/order/${id}`;
+      const url = `https://thawing-headland-26014.herokuapp.com/order/${id}`;
       console.log(url);
       const updatedStatus = "Approved";
       const updated = {
@@ -122,12 +122,12 @@ const ManageAllOrder = () => {
                 <td>{item.Address}</td>
                 <td>{item.status}</td>
                 <td>
-                  <button onClick={(e) => handleUpdateUser(e, item._id)}>
-                    Update
+                  <button className="btn btn-success" onClick={(e) => handleUpdateUser(e, item._id)}>
+                    UPDATE
                   </button>
                 </td>
                 <td>
-                  <button onClick={() => handleDeleteOrder(item._id)}>X</button>
+                  <button className="btn btn-danger" onClick={() => handleDeleteOrder(item._id)}>DELETE</button>
                 </td>
               </tr>
             ))}

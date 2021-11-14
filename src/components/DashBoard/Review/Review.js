@@ -10,7 +10,7 @@ const Review = () => {
   const [product, setProductName] = useState("");
   console.log(services);
   useEffect(() => {
-    fetch("http://localhost:5000/addService/")
+    fetch("https://thawing-headland-26014.herokuapp.com/products")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);
@@ -28,7 +28,7 @@ const Review = () => {
       Rating,
     };
     console.log(newReview);
-    fetch("http://localhost:5000/review/", {
+    fetch("https://thawing-headland-26014.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,8 +44,8 @@ const Review = () => {
       });
     e.preventDefault();
   };
-    return (
-        <div>
+  return (
+    <div>
       <h3>Give Review</h3>
 
       <h4>Enter a product </h4>
@@ -66,7 +66,7 @@ const Review = () => {
           <option>Select Product</option>
           {services &&
             services.map((item, i) => (
-              <option key={i}>{item.serviceName}</option>
+              <option key={i}>{item.name}</option>
             ))}
         </Form.Select>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -88,7 +88,6 @@ const Review = () => {
         </Button>
       </Form>
     </div>
-    );
-};
-
+  );
+}
 export default Review;
