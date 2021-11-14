@@ -1,21 +1,48 @@
-/* order place */
-.order-place{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  
+/* service page design */
+.service {
+  padding-top: 50px;
+  margin-top: 40px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
 }
-.order-place input{
-    margin-top: 30px;
-    padding: 4px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    width: 40%;
-    margin-bottom: 10px;
-    
+
+.right-column {
+  padding-top: 50px;
+  width: 50%;
+  margin-top: 110px;
+
 }
-.error{
-  color: red;
-  margin-right: 365px;
+
+.training-price {
+  color: #b95416;
+}
+.add-member-btn Button {
+  background-color: #201f1f;
+  border: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 15px;
+  margin-top: 60px;
+}
+.add-member-btn Button:hover {
+  background-color: #383431e8;
+}
+
+.service-img {
+  width: 80%;
+  padding-top: 50px;
+}
+.placeorder {
+  padding-bottom: 12rem !important;
+}
+.placeServiceForm {
+  height: 600px;
+  padding-top: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 50%;
 }

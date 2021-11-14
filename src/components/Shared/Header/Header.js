@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css'
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink  } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 
@@ -20,12 +20,38 @@ const Header = () => {
          <Nav.Link  as={Link} to="/addProduct"className="text-info">Add Product</Nav.Link>
          <Nav.Link  as={Link} to="/reviews"className="text-info">Reviews</Nav.Link>
          <Navbar.Text>
-        <a href="#login" className="text-info text-decoration-none" >{user?.displayName}</a>
+          <a href="#login" className="text-info text-decoration-none" >{user?.displayName}</a>
         </Navbar.Text>
-        {user?.displayName ?
+        
+        {/* {user?.displayName ?
          <Button  onClick={logout} variant="danger" className="ms-2 text-white" >LogOut</Button>:
          <Nav.Link as={Link} to="/login" className="text-white">Login</Nav.Link>
-       }
+       } */}
+
+{user?.providerData ? (
+                <div>
+                  <NavLink to="/dashboard" className="text-info text-decoration-none mx-2">
+                    Dashboard
+                  </NavLink>
+                  <Button onClick={logout} variant="danger" className="ms-2 text-white">
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Nav>
+                  <Nav.Item className="nav-itemlist">
+                    <Nav.Link as={Link} to="/login" className="text-info text-decoration-none">
+                      Login
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link as={Link} to="/register" className="text-info text-decoration-none">
+                      Register
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              )}
+             
          </Navbar.Collapse>
          </Container>
          </Navbar>

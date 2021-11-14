@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { Card, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-const MoreProducts = (props) => {
+const MoreProducts = () => {
     const [moreProducts, setMoreProducts] = useState([])
-    const {_id} = props
+  
 
     useEffect(()=>{
         fetch('https://thawing-headland-26014.herokuapp.com/products')
@@ -20,8 +20,9 @@ const MoreProducts = (props) => {
         </div>
         <input className="product" type="text" placeholder="Search your Favourite Products" />
         <Row xs={1} md={2} lg={3} className="g-4">
-            {
-                moreProducts?.map(moreProduct => 
+            { moreProducts &&
+                moreProducts?.map((moreProduct, i )=> (
+                 <Container key={i}>
                     <div className="mt-5">
                     <Col>
                     <Card>
@@ -30,15 +31,15 @@ const MoreProducts = (props) => {
                          <h3>{moreProduct.name}</h3>
                          <h5>${moreProduct.price}</h5>
                          <p>{moreProduct.description.slice(0, 110)}</p>
-                        <Link to={`/buyNow/${_id}`}>
+                        <Link to={`/buyNow/${i}`}>
                          <Button variant="danger">Buy Now</Button>
                        </Link>
                       </Card.Body>
                     </Card>
                   </Col>
                     </div>
-                    )
-            }
+                 </Container>
+                 ))}
         </Row>
      </div>
     );

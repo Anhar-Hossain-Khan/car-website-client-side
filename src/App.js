@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import DashBoard from './components/DashBoard/DashBoard/DashBoard';
 import About from './components/Home/About/About';
 import AddProduct from './components/Home/AddProduct/AddProduct';
 import Home from './components/Home/Home/Home';
@@ -58,6 +59,10 @@ function App() {
           <Route path="/register">
           <Register></Register>
           </Route>
+
+          <Route path="/dashboard">
+              <DashBoard></DashBoard>
+            </Route>
 
           <Route path="*">
             <NotFound></NotFound>
