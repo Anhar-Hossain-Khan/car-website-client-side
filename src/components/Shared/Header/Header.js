@@ -19,20 +19,20 @@ const Header = () => {
          <Nav.Link  as={Link} to="/moreProducts"className="text-info">More Products</Nav.Link>
          <Nav.Link  as={Link} to="/addProduct"className="text-info">Add Product</Nav.Link>
          <Nav.Link  as={Link} to="/reviews"className="text-info">Reviews</Nav.Link>
-         <Navbar.Text>
-          <a href="#login" className="text-info text-decoration-none" >{user?.displayName}</a>
-        </Navbar.Text>
-        
+         
         {/* {user?.displayName ?
          <Button  onClick={logout} variant="danger" className="ms-2 text-white" >LogOut</Button>:
          <Nav.Link as={Link} to="/login" className="text-white">Login</Nav.Link>
        } */}
 
-{user?.providerData ? (
+       {user?.providerData ? (
                 <div>
                   <NavLink to="/dashboard" className="text-info text-decoration-none mx-2">
-                    Dashboard
+                    DashBoard
                   </NavLink>
+                  <Navbar.Text>
+          <a href="#login" className="text-info text-decoration-none" >{user?.displayName}</a>
+        </Navbar.Text>
                   <Button onClick={logout} variant="danger" className="ms-2 text-white">
                     Logout
                   </Button>

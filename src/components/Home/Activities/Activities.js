@@ -5,15 +5,15 @@ import './Activities.css'
 const Activities = () => {
     return (
         <Container className="mb-5">
-         <h2 className=" mt-4 mb-3 text-primary support">Our Support</h2>
+         <h2 className=" mt-4 mb-3 text-primary support">Our Help & Support</h2>
           <div>
             <Row xs={1} md={2} lg={4} className="g-0 ">
     <Col>
       <Card>
         <Card.Body className="activities">
-          <Card.Title className="text-primary support">Travel Guide</Card.Title>
+          <Card.Title className="text-primary support">Warranty Policy</Card.Title>
           <Card.Text>
-          We guides plan, sell, and arrange tours for groups or individuals that are normally at long distances from their homes.
+           CarBazar Shop will provide the term  of the warranty shall commence from the date of delivery of the new vehicle to the first purchaser. 
           </Card.Text>
           <Button className="btn btn-danger">Read More</Button>
         </Card.Body>
@@ -23,9 +23,9 @@ const Activities = () => {
     <Col>
       <Card>
         <Card.Body className="activities">
-          <Card.Title className=" support">Hotel Services</Card.Title>
+          <Card.Title className=" support">Car Wash & Polish</Card.Title>
           <Card.Text>
-          We provides services include reception guests, room service, food service, including restaurants in the hotel, and security. 
+         We also provides polishing and washing the car's exterior by hand or machine, shampooing, cleaning for protection to the car. 
           </Card.Text>
           <Button className="btn btn-danger">Read More</Button>
         </Card.Body>
@@ -35,9 +35,9 @@ const Activities = () => {
     <Col>
       <Card>
         <Card.Body className="activities">
-          <Card.Title className=" support">24 Hours Support</Card.Title>
+          <Card.Title className=" support">24/7 Customer Support</Card.Title>
           <Card.Text>
-         We Provide Excellent customer support  when a company exceeds a customer's expectations and provide 24 hours support. 
+         We Provide Excellent customer support  when a company exceeds a customer's expectations and provide 24/7 Customer Support. 
           </Card.Text>
           <Button className="btn btn-danger">Read More</Button>
         </Card.Body>
@@ -47,7 +47,7 @@ const Activities = () => {
     <Col>
       <Card>
         <Card.Body className="activities">
-          <Card.Title className="support">Quality Services</Card.Title>
+          <Card.Title className="support">Professional Mechanic</Card.Title>
           <Card.Text>
          We Ensure Quality service is dealing with clients and customers in a respectful and helpful way and provide our best services.
           </Card.Text>
