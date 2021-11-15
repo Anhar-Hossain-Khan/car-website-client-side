@@ -17,13 +17,7 @@ const Header = () => {
          <Nav.Link  as={Link} to="/home" className="text-info">Home</Nav.Link>
          <Nav.Link  as={Link} to="/about" className="text-info">About Us</Nav.Link>
          <Nav.Link  as={Link} to="/moreProducts"className="text-info">More Products</Nav.Link>
-         <Nav.Link  as={Link} to="/addProduct"className="text-info">Add Product</Nav.Link>
          <Nav.Link  as={Link} to="/reviews"className="text-info">Reviews</Nav.Link>
-         
-        {/* {user?.displayName ?
-         <Button  onClick={logout} variant="danger" className="ms-2 text-white" >LogOut</Button>:
-         <Nav.Link as={Link} to="/login" className="text-white">Login</Nav.Link>
-       } */}
        
        {user?.providerData ? (
                 <div>

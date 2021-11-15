@@ -39,59 +39,48 @@ const DashBoard = (props) => {
       <div>
         <Toolbar />
         <Divider />
-        <Link to="/">
-          <Button color="inherit">Home</Button>
+        <Link className="text-decoration-none" to="/">
+          <Button  color="inherit">Home</Button>
         </Link>
         <br />
-        <Link to={`${url}`}>
+        <Link className="text-decoration-none" to={`${url}`}>
           <Button color="inherit">Dashboard</Button>
         </Link>
    
         
         {admin && (
         <Box>
-          <Link to={`${url}/makeAdmin`}>
+          <Link className="text-decoration-none" to={`${url}/makeAdmin`}>
             <Button color="inherit">Make Admin</Button>
           </Link>
-          <Link to={`${url}/manageallorder`}>
+          <Link className="text-decoration-none" to={`${url}/manageallorder`}>
             <Button color="inherit">Manage All Order</Button>
           </Link>
           <br />
-          <Link to={`${url}/addproduct`}>
-            <Button color="inherit">Manage product</Button>
+          <Link className="text-decoration-none" to={`${url}/addproduct`}>
+            <Button color="inherit">Add product</Button>
           </Link>
           <br />
         </Box>
       )}
       {!admin && (
         <Box>
-          <Link to={`${url}/myorder`}>
+          <Link className="text-decoration-none" to={`${url}/myorder`}>
             <Button color="inherit">My Order</Button>
           </Link>
-          <Link to={`${url}/payment`}>
-            <Button color="inherit">Payment System</Button>
+          <Link className="text-decoration-none" to={`${url}/payment`}>
+            <Button color="inherit">Payment</Button>
           </Link>
-          <Link to={`${url}/review`}>
+          <Link className="text-decoration-none" to={`${url}/review`}>
             <Button color="inherit">Review</Button>
           </Link>
         </Box>
       )}
-      <Link to="/">
+      <Link className="text-decoration-none" to="/">
         <Button color="inherit" onClick={logout}>
           Log Out
         </Button>
       </Link>
-
-        {/* <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
       </div>
     );
   

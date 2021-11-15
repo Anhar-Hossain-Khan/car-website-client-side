@@ -45,17 +45,13 @@ function App() {
             <About></About>
           </PrivateRoute>
 
-          <PrivateRoute path="/addProduct">
-            <AddProduct></AddProduct>
-          </PrivateRoute>
-
           <PrivateRoute path="/buyNow/:buyId">
          <OrderPlace></OrderPlace>
           </PrivateRoute>
 
-          <Route path="/reviews">
+          <PrivateRoute path="/reviews">
             <Reviews></Reviews>
-          </Route>
+          </PrivateRoute>
 
           <Route path="/login">
             <Login></Login>
