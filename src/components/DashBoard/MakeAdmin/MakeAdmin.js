@@ -1,11 +1,9 @@
 import { Button, TextField, Alert } from "@mui/material";
 import React, { useState } from "react";
-import useAuth from "./../../../hooks/useAuth";
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState("");
     console.log(email);
-
     const [success, setSuccess] = useState(false);
   
     const handleOnBlur = (e) => {
@@ -46,7 +44,7 @@ const MakeAdmin = () => {
             Make Admin
           </Button>
         </form>
-        {success && <Alert severity="success">Made Admin successfully!</Alert>}
+        {success && <Alert severity="success"> Admin Created successfully!</Alert>}
       </div>
     );
   };

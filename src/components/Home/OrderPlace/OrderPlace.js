@@ -28,13 +28,12 @@ const OrderPlace = () => {
         setServicePage(data);
         setIndividualService([data[buyId]]);
         setPlace([data[buyId]][0].name);
-        // setImage([data[buyId]][0].image);
         setCost([data[buyId]][0].price);
         setDescription([data[buyId]][0].description);
       });
   }, []);
 
-  // handle add service
+  // handle add Order
   const handlePlaceOrder = (e, user) => {
     const productname = productName.current.value;
     const username = userName.current.value;
@@ -67,7 +66,7 @@ const OrderPlace = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("Successfully added the Order.");
+          alert("Order Added Successfully.");
           e.target.reset();
         }
       });
@@ -76,7 +75,7 @@ const OrderPlace = () => {
   };
 
   return (
-    // service page
+    
     <div>
       <Container>
         <h1 className="service">Product Details </h1>
@@ -90,7 +89,7 @@ const OrderPlace = () => {
                   <Image className="service-img" src={item.img} />
                 </Col>
                 <Col sm={12} md={6} lg={6} xl={6} className="right-column">
-                  <ListGroup vertical>
+                  <ListGroup vertical className="border border-primary">
                     <ListGroup.Item>
                       <h2>
                         <span>Name: </span>
@@ -113,8 +112,6 @@ const OrderPlace = () => {
             </Container>
           </>
         ))}
-
- 
 
       <div className="placeorder">
         <Container>
@@ -166,7 +163,7 @@ const OrderPlace = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Phone Number</Form.Label>
-            <Form.Control type="text" placeholder="Cost" ref={phoneNumber} />
+            <Form.Control type="text" placeholder="Phone Number" ref={phoneNumber} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -195,7 +192,6 @@ const OrderPlace = () => {
         </Form>
       </div>
     </div>  
-
   );
 }
 

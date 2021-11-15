@@ -16,7 +16,6 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import Payment from "../Payment/Payment";
 import ManageAllOrder from "./../ManageAllOrder/ManageAllOrder";
 import Review from "./../Review/Review";
-
 import AdminRoute from "../../AdminRoute/AdminRoute";
 import './DashBoard.css';
 import AddProduct from "../../Home/AddProduct/AddProduct";
@@ -46,8 +45,6 @@ const DashBoard = (props) => {
         <Link className="text-decoration-none" to={`${url}`}>
           <Button color="inherit">Dashboard</Button>
         </Link>
-   
-        
         {admin && (
         <Box>
           <Link className="text-decoration-none" to={`${url}/makeAdmin`}>
@@ -69,7 +66,7 @@ const DashBoard = (props) => {
             <Button color="inherit">My Order</Button>
           </Link>
           <Link className="text-decoration-none" to={`${url}/payment`}>
-            <Button color="inherit">Payment</Button>
+            <Button color="inherit">Payment System</Button>
           </Link>
           <Link className="text-decoration-none" to={`${url}/review`}>
             <Button color="inherit">Review</Button>
@@ -83,10 +80,8 @@ const DashBoard = (props) => {
       </Link>
       </div>
     );
-  
     const container =
       window !== undefined ? () => window().document.body : undefined;
-  
     return (
       <Box sx={{ display: "flex" }} className="dashboard">
         <CssBaseline />
@@ -163,9 +158,9 @@ const DashBoard = (props) => {
             <Route exact path={path}>
            <DashBoardHome />
             </Route>
-            <PrivateRoute path={`${path}/makeAdmin`}>
+            <AdminRoute path={`${path}/makeAdmin`}>
               <MakeAdmin />
-            </PrivateRoute>
+            </AdminRoute>
             <AdminRoute path={`${path}/manageallorder`}>
               <ManageAllOrder />
             </AdminRoute>

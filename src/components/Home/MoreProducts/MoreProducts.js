@@ -3,11 +3,9 @@ import { Container, Row } from 'react-bootstrap';
 import { Card, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-
 const MoreProducts = () => {
     const [moreProducts, setMoreProducts] = useState([])
   
-
     useEffect(()=>{
         fetch('https://thawing-headland-26014.herokuapp.com/products')
         .then(response => response.json())

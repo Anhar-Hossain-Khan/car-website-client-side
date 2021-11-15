@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import DashBoard from './components/DashBoard/DashBoard/DashBoard';
 import About from './components/Home/About/About';
-import AddProduct from './components/Home/AddProduct/AddProduct';
 import Home from './components/Home/Home/Home';
 import MoreProducts from './components/Home/MoreProducts/MoreProducts';
 import OrderPlace from './components/Home/OrderPlace/OrderPlace';

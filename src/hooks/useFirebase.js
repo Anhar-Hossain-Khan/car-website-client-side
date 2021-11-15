@@ -66,11 +66,7 @@ import initializeAuthentication from "../components/Login/Firebase/firebase.init
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           setError("");
-          // const newUser = { email, displayName: name };
-          // setUser(newUser);
-          // save user to the database
           saveUser(email, "POST");
-          // send name to firebase after creation
           updateProfile(auth.currentUser, {
             displayName: name,
           })

@@ -1,28 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router";
+import React, { useEffect, useState } from "react";
 import './ManageAllOrder.css';
-import {
-  Form,
-  Button,
-  Container,
-  Row,
-  Col,
-  ListGroup,
-  Table,
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Table} from "react-bootstrap";
 
 const ManageAllOrder = () => {
     const [allOrder, setAllOrder] = useState("");
     console.log(allOrder);
     const [order, setOrder] = useState({});
     console.log(order);
-    // useEffect(() => {
-    //   const url = `http://localhost:5000/order/${id}`;
-    //   fetch(url)
-    //     .then((res) => res.json())
-    //     .then((data) => setOrder(data));
-    // }, []);
   
     useEffect(() => {
       fetch("https://thawing-headland-26014.herokuapp.com/order")
@@ -31,7 +15,8 @@ const ManageAllOrder = () => {
           setAllOrder(data);
         });
     }, []);
-    // DELETE AN Order
+
+    // DELETE AN ORDER
     const handleDeleteOrder = (id) => {
       const proceed = window.confirm("Are you sure, you want to delete?");
       if (proceed) {
@@ -82,7 +67,7 @@ const ManageAllOrder = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.modifiedCount > 0) {
-            alert("Update Successful");
+            alert("Update Successfully");
           }
         });
     };
@@ -94,7 +79,7 @@ const ManageAllOrder = () => {
         </div>
       </Container>
 
-      <Table striped bordered hover>
+      <Table striped bordered hover className="border border-primary">
         <thead>
           <tr>
             <th>Person Name</th>

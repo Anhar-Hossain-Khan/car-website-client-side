@@ -1,29 +1,29 @@
-/* service page design */
 .service {
-  padding-top: 50px;
-  margin-top: 40px;
-  padding-bottom: 10px;
   width: 100%;
   text-align: center;
+  padding-top: 20px;
+  margin-top: 20px;
+  padding-bottom: 10px;
 }
 
 .right-column {
-  padding-top: 50px;
   width: 50%;
-  margin-top: 110px;
-
+  padding-top: 20px;
+  margin-left: -10px;
+  margin-top: 130px;
 }
 
 .training-price {
   color: #b95416;
 }
 .add-member-btn Button {
+ 
+  border-radius: 15px;
+  margin-top: 60px;
   background-color: #201f1f;
   border: none;
   padding-left: 30px;
   padding-right: 30px;
-  border-radius: 15px;
-  margin-top: 60px;
 }
 .add-member-btn Button:hover {
   background-color: #383431e8;
@@ -37,12 +37,12 @@
   padding-bottom: 12rem !important;
 }
 .placeServiceForm {
+  padding-left: 20px;
+  padding-right: 10px;
+  width: 50%;
   height: 600px;
-  padding-top: 100px;
+  padding-top: 10px;
   align-items: center;
   justify-content: center;
   margin: 50px;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 50%;
 }

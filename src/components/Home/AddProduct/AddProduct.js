@@ -2,18 +2,8 @@ import axios from 'axios';
 import { useForm } from "react-hook-form";
 import './AddProduct.css'
 import React, {  useState, useEffect } from "react";
-import {
-  Form,
-  Button,
-  ListGroup,
-  Container,
-  Row,
-  Col,
-  Image,
-  Table,
-} from "react-bootstrap";
+import {Table} from "react-bootstrap";
 import "./AddProduct.css";
-import { Link } from "react-router-dom";
 
 const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -28,7 +18,6 @@ const AddProduct = () => {
         })
     }
 
-
   const [services, setServices] = useState([]);
 
   useEffect(() => {
@@ -39,7 +28,7 @@ const AddProduct = () => {
       });
   }, []);
 
-  // DELETE AN Order
+  // DELETE AN ORDER
   const handleDeleteProduct = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
@@ -98,8 +87,6 @@ const AddProduct = () => {
             ))}
         </tbody>
       </Table>
-    
-    
         </div>
     );
 };

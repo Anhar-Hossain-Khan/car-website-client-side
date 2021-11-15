@@ -9,6 +9,7 @@ const Review = () => {
   const [rating, setRating] = useState("");
   const [product, setProductName] = useState("");
   console.log(services);
+
   useEffect(() => {
     fetch("https://thawing-headland-26014.herokuapp.com/products")
       .then((response) => response.json())
@@ -38,7 +39,7 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("Thanks for give rating.");
+          alert("Giving Rating Successfully");
           e.target.reset();
         }
       });
@@ -46,9 +47,9 @@ const Review = () => {
   };
   return (
     <div>
-      <h3>Give Review</h3>
+      <h3>Review Form</h3>
 
-      <h4>Enter a product </h4>
+      <h4> Product Name</h4>
       <Form onSubmit={handleAddService}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User Name</Form.Label>
@@ -83,7 +84,7 @@ const Review = () => {
             <option value="5">Five</option>
           </Form.Select>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="success" type="submit">
           Submit
         </Button>
       </Form>

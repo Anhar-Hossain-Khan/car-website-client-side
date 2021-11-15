@@ -1,19 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import './MyOrder.css';
-import {
-  Form,
-  Button,
-  Container,
-  Row,
-  Col,
-  ListGroup,
-  Table,
-} from "react-bootstrap";
+import { Container,Table} from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
+
 function MyOrder() {
   const { user } = useAuth();
   const [myOrder, setMyOrder] = useState("");
   console.log(myOrder);
+
   useEffect(() => {
     fetch("https://thawing-headland-26014.herokuapp.com/order")
       .then((response) => response.json())
@@ -49,7 +43,7 @@ function MyOrder() {
         </div>
       </Container>
 
-      <Table striped bordered hover responsive>
+      <Table striped bordered hover responsive className="border border-primary">
         <thead>
           <tr>
             <th>Person Name</th>

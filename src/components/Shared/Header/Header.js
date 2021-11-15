@@ -18,7 +18,6 @@ const Header = () => {
          <Nav.Link  as={Link} to="/about" className="text-info">About Us</Nav.Link>
          <Nav.Link  as={Link} to="/moreProducts"className="text-info">More Products</Nav.Link>
          <Nav.Link  as={Link} to="/reviews"className="text-info">Reviews</Nav.Link>
-       
        {user?.providerData ? (
                 <div>
                   <NavLink to="/dashboard" className="text-info text-decoration-none mx-2">

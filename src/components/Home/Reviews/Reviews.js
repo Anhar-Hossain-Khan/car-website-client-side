@@ -21,41 +21,9 @@ const Reviews = () => {
           review.map((item, i) => (
             <>
               <Container key={i}>
-                {/* <Row className="pb-4">
-                  <Col sm={12} md={6} lg={6} xl={6} className="right-column">
-                    <ListGroup vertical>
-                      <ListGroup.Item>
-                        <h4 className="text-success"> User Name: {item.username}</h4>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <p style={{ float: "left" }}>
-                          Product Name: {item.productname}
-                        </p>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <p style={{ float: "left" }}>
-                          Rating:
-                          <ReactStarRating
-                            numberOfStar={5}
-                            numberOfSelectedStar={item.Rating}
-                            colorFilledStar="red"
-                            colorEmptyStar="black"
-                            starSize="20px"
-                            spaceBetweenStar="10px"
-                            disableOnSelect={false}
-                            onSelectStar={(val) => {
-                              console.log(val);
-                            }}
-                          />
-                        </p>
-                      </ListGroup.Item>
-                    </ListGroup>
-                  </Col>
-                </Row> */}
-
-<Row xs={1} md={1} lg={1} className="g-0 pb-5">
-    <Col>
-      <Card>
+       <Row xs={1} md={1} lg={1} className="g-0 pb-5">
+        <Col>
+        <Card>
         <Card.Body className="border border-primary">
        
         <ListGroup vertical>
@@ -85,8 +53,6 @@ const Reviews = () => {
                         </h5>
                       </ListGroup.Item>
                     </ListGroup>
-        
-        
         </Card.Body>
       </Card>
     </Col>

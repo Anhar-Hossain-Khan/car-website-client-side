@@ -1,17 +1,8 @@
-import {
-  Container,
-  Typography,
-  TextField,
-  Button,
-  CircularProgress,
-  Alert,
-} from "@mui/material";
+import {Container, Typography, TextField, Button, CircularProgress, Alert,} from "@mui/material";
 import React, { useState } from "react";
 import { Grid } from "@mui/material";
 import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-
-
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
@@ -38,7 +29,7 @@ const Register = () => {
       <Grid container spacing={2}>
         <Grid item sx={{ mt: 15 }} xs={12} md={6} lg={12}>
           <Typography variant="body1" gutterBottom>
-            <h2 style={{ textAlign: "left" }}>REGISTER USER</h2>
+            <h2 >User Register Form</h2>
           </Typography>
           {!isLoading && (
             <form onSubmit={handleLoginSubmit}>

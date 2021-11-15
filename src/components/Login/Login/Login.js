@@ -13,8 +13,8 @@ const Login = () => {
       const redirect = location?.state?.from || "/";
     return (
         <div className="text-center text-white">
-        <h2 className="text-warning">Login </h2>
-        <p className="mt-2">Enter Your valid Email & Password</p>
+        <h2 className="text-success">Login </h2>
+        <p className="mt-2">Enter Your Email & Password</p>
         <p className="text-danger text-center">{error}</p>
         <div className="w-25 mx-auto">
           <Form
