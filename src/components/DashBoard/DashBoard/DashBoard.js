@@ -58,7 +58,7 @@ const DashBoard = (props) => {
           </Link>
           <br />
           <Link className="text-decoration-none" to={`${url}/addproduct`}>
-            <Button color="inherit">Add product</Button>
+            <Button color="inherit">Add & Manage product</Button>
           </Link>
           <br />
         </Box>
